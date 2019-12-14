@@ -1,0 +1,74 @@
+#%RAML 1.0
+version: 1.0.0
+title: T-Shirt Ordering Service
+baseUri: http://localhost:8081/api
+mediaType: 
+  - application/json
+/product:
+  get:
+    description: Get a list of all the inventory products
+    responses:
+      200:
+        body:
+            example: |
+              [
+                {
+                  "productCode": "TS",
+                  "size": "S",
+                  "description": "Small T-shirt",
+                  "count": 30
+                },
+                {
+                  "productCode": "TS",
+                  "size": "M",
+                  "description": "Medium T-shirt",
+                  "count": 22
+                }
+              ]
+/orders:
+  post:
+    description: Places a new T-Shirt order
+    body:
+        example: |
+          {
+            "size": "M",
+            "email": "robin@mail.com",
+            "name": "Robin Pille",
+            "address1": "77 Geary St.",
+            "address2": "Apt 7",         
+            "city": "San Francisco",
+            "stateOrProvince": "CA",
+            "country": "US",
+            "postalCode": "94131"
+          }
+        type: !include schema/schema _validation_ customersdata.json
+    responses:
+      200:
+        body:
+  /status:
+    displayName: Status
+    get:
+      responses:
+        200:
+          body:
+              example: | 
+                {
+                  "orderId": "4321",
+                  "status": "Delivered",
+                  "size": "M"
+                }  
+      queryParameters:
+        orderId:
+          description: Provide a valid order Id
+          required: true
+          example: "4321"
+        email:
+          description: Provide a valid email address
+          required: true
+          example: "max@mule.com"                       
+
+
+  
+
+  
+  

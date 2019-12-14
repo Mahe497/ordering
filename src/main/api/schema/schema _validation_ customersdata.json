@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+ "id": "http://jsonschema.net",
+  "properties": {
+    "size": {
+     "enum": ["S", "M", "L", "XL", "XXL"],
+      "id": "http://jsonschema.net/size",
+      "type": "string"
+    },
+    "email": {
+    "format": "email",
+     "id": "http://jsonschema.net/email",
+      "type": "string"
+    },
+    "name": {
+     "id": "http://jsonschema.net/name",
+      "type": "string"
+    },
+    "address1": {
+    "id": "http://jsonschema.net/address1",
+      "type": "string"
+    },
+    "address2": {
+    "id": "http://jsonschema.net/address2",
+      "type": "string"
+    },
+    "city": {
+     "id": "http://jsonschema.net/city",
+      "type": "string"
+    },
+    "stateOrProvince": {
+    "id": "http://jsonschema.net/stateOrProvince",
+      "type": "string"
+    },
+    "country": {
+     "id": "http://jsonschema.net/country",
+      "type": "string"
+    },
+    "postalCode": {
+      "id": "http://jsonschema.net/postalCode",
+     "type": "string"
+    }
+  },
+  "required": 
+  [
+    "size",
+    "email",
+    "name",
+    "address1",
+    "city",
+    "stateOrProvince",
+    "country",
+    "postalCode"
+  ]
+}
